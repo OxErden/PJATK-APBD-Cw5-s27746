@@ -84,10 +84,6 @@ public class DbService(HospitalContext ctx) : IDbService
         {
             throw new KeyNotFoundException("BedType not found");
         }
-        
-        var sqlMaxDate = new DateTime(9999, 12, 31, 23, 59, 59);
-        var requestFrom = request.From;
-        var requestTo = request.To ?? sqlMaxDate;
 
         var availableBed = await ctx.Beds
             .Include(b => b.BedType)
