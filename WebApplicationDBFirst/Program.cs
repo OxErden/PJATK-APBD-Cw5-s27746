@@ -10,6 +10,8 @@ builder.Services.AddDbContext<HospitalContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
 });
+builder.Services.AddControllers();
+
 
 var app = builder.Build();
 
@@ -21,6 +23,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-
+app.MapControllers();
 
 app.Run();
