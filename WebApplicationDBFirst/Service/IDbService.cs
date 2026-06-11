@@ -4,5 +4,6 @@ namespace WebApplicationDBFirst.Service;
 
 public interface IDbService
 {
-    Task<List<PatientResponse>> GetPatientsAsync(string? search, CancellationToken cancellationToken);
+    public Task<List<PatientResponse>> GetPatientsAsync(string? search, CancellationToken cancellationToken);
+    public Task <BedAssignmentResponse> CreateBedAssignmentsAsync(string pesel, CreateBedAssignmentRequest request,CancellationToken cancellationToken);
 }
